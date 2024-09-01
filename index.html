@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הבנת גדלי פריימים בקולנוע</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl; /* קביעת כיוון הכתיבה לעברית */
+            text-align: right; /* יישור הטקסט לימין */
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        #home {
+            display: block;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .shot-img {
+            max-width: 70%; /* שינוי רוחב התמונה להיות קטן יותר */
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        button, .link-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .link-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .content-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 85%; /* שינוי לרוחב של 85% */
+            margin: 0 auto;
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px; /* להקטין את הפערים בין הריבועים */
+        }
+
+        .column {
+            flex: 1;
+            background-color: rgba(50, 50, 50, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center; /* מרכז את הטקסט */
+            max-width: 100%; /* ריבועים יותר צרים */
+        }
+
+        h1 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffcc00;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            text-align: center; /* מרכז את הטקסט */
+            margin: 10px auto;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: justify; /* הרחבת הטקסט */
+            margin: 0 auto 20px;
+            max-width: 100%; /* הרחבת הטקסט */
+            padding: 0 15px; /* מוסיף ריווח פנימי */
+        }
+
+        .home-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .image-map {
+            position: relative;
+            display: inline-block;
+        }
+
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+            background-color: rgba(255, 255, 0, 0); /* שקוף כברירת מחדל */
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName('page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- אייקון דף הבית -->
+    <img src="https://i.imgur.com/ThnB2lf.png" class="home-icon" alt="דף הבית" onclick="showPage('home')">
+
+    <!-- דף הבית -->
+    <div id="home" class="page">
+        <div class="image-map">
+            <img src="https://i.imgur.com/i90cLIo.jpeg" alt="דף הבית">
+            <!-- כפתורים עם מיקום מדויק על פי התמונה האחרונה -->
+            <div class="clickable-area" onclick="showPage('closeUp')" style="top: 55%; left: 32%; width: 10%; height: 8%;"></div>
+            <div class="clickable-area" onclick="showPage('mediumShot')" style="top: 45%; left: 45%; width: 10%; height: 8%;"></div>
+            <div class="clickable-area" onclick="showPage('longShot')" style="top: 30%; left: 55%; width: 10%; height: 8%;"></div>
+            <div class="clickable-area" onclick="showPage('extremeLongShot')" style="top: 20%; left: 70%; width: 10%; height: 8%;"></div>
+        </div>
+        <div class="link-container">
+            <button class="link-btn" onclick="showPage('closeUp')">קלוז אפ</button>
+            <button class="link-btn" onclick="showPage('mediumShot')">מדיום שוט</button>
+            <button class="link-btn" onclick="showPage('longShot')">לונג שוט</button>
+            <button class="link-btn" onclick="showPage('extremeLongShot')">אקסטרים לונג שוט</button>
+        </div>
+    </div>
+
+    <!-- דפים פנימיים -->
+    <div id="closeUp" class="page">
+        <h1>Close-Up (שוט תקריב)</h1>
+        <img class="shot-img" src="https://i.imgur.com/8AaZArn.jpeg" alt="Close-Up">
+        <div class="content-container">
+            <p>בתמונה זו מתמקדים בפניו של הנער. השוט קרוב מאוד לפנים, מה שמדגיש את ההבעות והרגשות שלו. הרקע מטושטש או נעדר כמעט לחלוטין, כך שכל תשומת הלב מופנית לדמות.</p>
+            <div class="two-columns">
+                <div class="column">
+                    <h2>מאפיינים:</h2>
+                    <ul>
+                        <li>השוט מתמקד בעיקר בפנים של הדמות.</li>
+                        <li>הרקע מטושטש או נעדר כדי להדגיש את הפנים.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>השפעה רגשית:</h2>
+                    <ul>
+                        <li>יוצר חיבור רגשי ישיר עם הדמות ומדגיש את הרגשות וההבעות שלה.</li>
+                        <li>מעצים את החוויה הרגשית של הצופה ומאפשר קרבה אינטימית לדמות.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mediumShot" class="page">
+        <h1>Medium Shot (שוט בינוני-רחב)</h1>
+        <img class="shot-img" src="https://i.imgur.com/mj68DHN.jpeg" alt="Medium Shot">
+        <div class="content-container">
+            <p>בתמונה זו הדמות נראית מהברכיים ומעלה, עם יותר פוקוס עליה אך עדיין נשאר קשר חזק עם הסביבה. הכיתה נשארת נוכחת ברקע, אבל הדמות היא המוקד המרכזי של הפריים.</p>
+            <div class="two-columns">
+                <div class="column">
+                    <h2>מאפיינים:</h2>
+                    <ul>
+                        <li>הדמות נראית מהברכיים ומעלה, מה שמביא יותר קרבה אליה.</li>
+                        <li>עדיין יש קשר לסביבה שמסביב לדמות, אך עם פחות דגש.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>השפעה רגשית:</h2>
+                    <ul>
+                        <li>מגביר את הקרבה הרגשית לדמות, תוך שמירה על הקשר לסביבה.</li>
+                        <li>מתאים להציג אינטראקציות או פעולות תוך הדגשת שפת הגוף והבעות הפנים של הדמות.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="longShot" class="page">
+        <h1>Long Shot (שוט רחב)</h1>
+        <img class="shot-img" src="https://i.imgur.com/KJUNiHF.jpeg" alt="Long Shot">
+        <div class="content-container">
+            <p>בתמונה זו ניתן לראות את אותו הנער יושב בכיתה, אך הפוקוס מתקרב מעט. הדמות עדיין נראית במלואה, אך הרקע עדיין משחק תפקיד משמעותי, מה שמציג יותר מהכיתה אך שומר על נוכחות הדמות.</p>
+            <div class="two-columns">
+                <div class="column">
+                    <h2>מאפיינים:</h2>
+                    <ul>
+                        <li>הדמות נראית בבירור אך עדיין משולבת בסביבה.</li>
+                        <li>הכיתה והרקע מקבלים חשיבות בהבנת המיקום וההקשר של הדמות.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>השפעה רגשית:</h2>
+                    <ul>
+                        <li>מספק תחושת איזון בין הדמות לסביבה.</li>
+                        <li>מאפשר לצופה לראות את היחסים בין הדמות לסביבה בה היא נמצאת, תוך שמירה על תחושת ניתוק או קרבה בינונית.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="extremeLongShot" class="page">
+        <h1>Extreme Long Shot (שוט רחב מאוד)</h1>
+        <img class="shot-img" src="https://i.imgur.com/ZBK4Zhz.jpeg" alt="Extreme Long Shot">
+        <div class="content-container">
+            <p>התמונה מציגה נער יושב בכיתה ריקה. הכיתה גדולה עם שורות של שולחנות וכסאות, והנער נראה קטן בפריים ביחס לסביבה. יש חלונות גדולים המאפשרים כניסת אור טבעי, אך הכיתה עצמה נראית שקטה וריקה.</p>
+            <div class="two-columns">
+                <div class="column">
+                    <h2>מאפיינים:</h2>
+                    <ul>
+                        <li>הדמות קטנה מאוד ביחס לסביבה הרחבה.</li>
+                        <li>הסביבה עצמה, הכיתה, מקבלת דגש משמעותי.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>השפעה רגשית:</h2>
+                    <ul>
+                        <li>יוצר תחושת מרחק רגשי ופיזי בין הצופה לדמות.</li>
+                        <li>מדגיש תחושת בדידות, ניכור, או חוסר חשיבות של הדמות בתוך הסביבה הגדולה.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
